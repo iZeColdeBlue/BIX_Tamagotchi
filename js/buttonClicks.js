@@ -2,7 +2,7 @@ const loveButton = document.getElementById("loveB");
 const hungerButton = document.getElementById("hungerB");
 const hygieneButton = document.getElementById("hygieneB");
 
-const socket = new WebSocket("ws://localhost:8025/test");
+const socket = new WebSocket("wss://settled-closely-moccasin.ngrok-free.app/test");
 
 socket.onopen = function() {
     console.log('Connected to Processing server');
