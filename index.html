@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta Data -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Interact with the tamagotchi on the Kunsthaus in Graz">
+        <meta name="keywords" content="BIX, Graz, Kunsthaus, Tamagotchi, Interact">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Linked Files -->
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="pics/favicon.ico">
+
+        <title>Friendly Alien</title>
+    </head>
+    <body>
+        <section class="header">
+            <h1>Take care of our friendly alien!</h1>
+            <div class="picContainer">
+                <img src="pics/headerImg.svg" alt="a low resolution pixel graphic of a winking alien">
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="column">
+                <div class="graph">
+                    <div id="loveGraph" class="graphFiller">1</div>
+                </div>
+                <div class="label">Love</div>
+                <div id="loveB" class ="button"> <img src="icons/love.svg" alt="a low resolution pixel graphic of a heart"></div>
+            </div>
+
+            <div class="column">
+                <div class="graph">
+                    <div  id="hungerGraph" class="graphFiller">2</div>
+                </div>
+                <div class="label">Food</div>
+                <div id="hungerB" class="button"> <img src="icons/hunger.svg" alt="a low resolution pixel graphic of an apple"></div>
+            </div>
+
+            <div class="column">
+                <div class="graph">
+                    <div  id="hygieneGraph" class="graphFiller">3</div>
+                </div>
+                <div class="label">Hygiene</div>
+                <div id="hygieneB" class="button"> <img src="icons/hygiene.svg" alt="a low resolution pixel graphic of three stars"></div>
+            </div>
+
+            <!-- Script to check button clicks-->
+            <script src="js/buttonClicks.js"></script>
+        </section>
+
+        <div class="FAB">
+            <a href="about.html">
+                <div class="button">
+                    <img
+                    src="icons/help.svg"
+                    alt="a question mark in a circle"/></div>
+            </a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+/* ---------- general settings ---------- */
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url("fonts/Inter/Inter-VariableFont.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: "Inter";
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+/* ---------- nav settings ---------- */
+nav {
+  height: 50px;
+  width: 100vw;
+}
+nav .button {
+  background-color: transparent;
+}
+nav .button img {
+  height: 40px;
+  width: 40px;
+}
+
+/* ---------- header settings ---------- */
+.header {
+  flex-direction: column;
+  gap: 25px;
+}
+.header img {
+  height: 150px;
+}
+
+/* ---------- graph settings ---------- */
+.main {
+  flex-grow: 4;
+  align-items: center;
+  padding: 0 30px 0 30px;
+}
+
+.column {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graph {
+  background-color: lightgray;
+  width: 30px;
+  height: 200px;
+  display: flex;
+  align-items: end;
+}
+
+.graphFiller {
+  background-color: black;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill;
+}
+
+#loveGraph {
+  height: 30%;
+}
+
+#hungerGraph {
+  height: 60%;
+}
+
+#hygieneGraph {
+  height: 50%;
+}
+
+.label {
+  font-weight: bold;
+  font-size: large;
+}
+
+/* ---------- button settings ---------- */
+.button {
+  background-color: black;
+  height: 64px;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0 0 0;
+}
+.button img {
+  width: 35px;
+  height: 35px;
+}
+
+/* ---------- FAB settings ----------*/
+.FAB {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.FAB .button {
+  border-radius: 48px;
+  width: 48px;
+  height: 48px;
+}
+.FAB .button img {
+  height: 35px;
+}/*# sourceMappingURL=styles.css.map */
