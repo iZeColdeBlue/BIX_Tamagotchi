@@ -6,6 +6,12 @@
         url("fonts/Inter/Inter-VariableFont.ttf") format("truetype");
 }
 
+:root{
+    --loveGraphFill: 100%;
+    --hungerGraphFill: 100%;
+    --hygieneGraphFill: 100%;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -88,15 +94,15 @@ $padding:30px;
 }
 
 #loveGraph{
-    height: 30%;
+    height: var(--loveGraphFill);
 }
 
 #hungerGraph{
-    height: 60%;
+    height: var(--hungerGraphFill);
 }
 
 #hygieneGraph{
-    height: 50%;
+    height: var(--hygieneGraphFill);
 }
 
 .label{
