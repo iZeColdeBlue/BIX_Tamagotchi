@@ -7,13 +7,34 @@ const UNLOCK_KEY = "uiUnlockTime";
 const title = document.getElementById('pageTitle');
 
 const socket = new WebSocket("wss://settled-closely-moccasin.ngrok-free.app/test");
+//start websocket connection: ngrok http --url=settled-closely-moccasin.ngrok-free.app 8025
 
-let currentLove = 50.00;
-let currentHunger = 25.00;
-let currentHygiene = 40.00;
+let currentLove;
+let currentHunger;
+let currentHygiene;
 
 let lockDurration;
 let unlockTimestamp;
+
+async function updateGraph() {
+    socket.send("GET");
+
+    // Wait for the WebSocket message
+    const data = await new Promise((resolve) => {
+        socket.onmessage = function(event) {
+            resolve(JSON.parse(event.data));
+        };
+    });
+
+    // Update the graph with the received data
+    currentLove = data.love;
+    currentHunger = data.hunger;
+    currentHygiene = data.hygiene;
+
+    document.documentElement.style.setProperty('--loveGraphFill', currentLove + '%');
+    document.documentElement.style.setProperty('--hungerGraphFill', currentHunger + '%');
+    document.documentElement.style.setProperty('--hygieneGraphFill', currentHygiene + '%');
+}
 
 window.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.setProperty('--loveGraphFill', currentLove + '%');
@@ -33,7 +54,11 @@ window.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem(UNLOCK_KEY);
         unlockUI();
     }
+    
+});
 
+window.addEventListener('load', () => {
+    setInterval(updateGraph, 10000); // Update 10 second
 });
 
 //socket connection
@@ -48,7 +73,7 @@ function loveClicked(){
         if(currentLove < 100){
             console.log("You sent LOVE to the alien!");
             socket.send("LOVE");
-            currentLove += 5;
+            //currentLove += 5;
             document.documentElement.style.setProperty('--loveGraphFill', currentLove + '%');
         }
     } 
@@ -59,7 +84,7 @@ function hungerClicked(){
         if(currentHunger < 100){
             console.log("You sent FOOD to the alien!");
             socket.send("FOOD");
-            currentHunger += 5;
+            //currentHunger += 5;
             document.documentElement.style.setProperty('--hungerGraphFill', currentHunger + '%');
         }
     }
@@ -70,7 +95,7 @@ function hygieneClicked(){
         if(currentHygiene < 100){
             console.log("You cleaned the alien!");
             socket.send("SOAP");
-            currentHygiene += 5;
+            //currentHygiene += 5;
             document.documentElement.style.setProperty('--hygieneGraphFill', currentHygiene + '%');
         }
     }
@@ -102,7 +127,7 @@ function unlockUI(){
 
 function updateTimer(){
     if(!lockDurration){
-        lockDurration = 5 * 60 * 1000; 
+        lockDurration = 5 * 60 * 1000;  //<- change to block users for shorter time (5 min for real; 1 min for testing)
     }
     unlockTimestamp = Date.now() + lockDurration;
     localStorage.setItem(UNLOCK_KEY, unlockTimestamp);
@@ -127,14 +152,17 @@ loveButton.addEventListener("click", () => {
     loveClicked();
     blockUI();
     updateTimer();
+    updateGraph();
 });
 hungerButton.addEventListener("click", () => {
     hungerClicked();
     blockUI();
     updateTimer();
+    updateGraph();
 });
 hygieneButton.addEventListener("click", () => {
     hygieneClicked();
     blockUI();
     updateTimer();
+    updateGraph();
 });
