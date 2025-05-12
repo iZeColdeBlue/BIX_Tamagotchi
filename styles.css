@@ -1,8 +1,16 @@
+/* ---------- variables ---------- */
 /* ---------- general settings ---------- */
 @font-face {
   font-family: "Inter";
   src: local("Inter"), url("fonts/Inter/Inter-VariableFont.ttf") format("truetype");
+  color: rgba(0, 0, 0, 0.85);
 }
+:root {
+  --loveGraphFill: 100%;
+  --hungerGraphFill: 100%;
+  --hygieneGraphFill: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -43,6 +51,7 @@ nav .button img {
 .header {
   flex-direction: column;
   gap: 25px;
+  color: rgba(0, 0, 0, 0.85);
 }
 .header img {
   height: 150px;
@@ -53,6 +62,7 @@ nav .button img {
   flex-grow: 4;
   align-items: center;
   padding: 0 30px 0 30px;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .column {
@@ -71,22 +81,22 @@ nav .button img {
 }
 
 .graphFiller {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.85);
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill;
 }
 
 #loveGraph {
-  height: 30%;
+  height: var(--loveGraphFill);
 }
 
 #hungerGraph {
-  height: 60%;
+  height: var(--hungerGraphFill);
 }
 
 #hygieneGraph {
-  height: 50%;
+  height: var(--hygieneGraphFill);
 }
 
 .label {
@@ -96,7 +106,28 @@ nav .button img {
 
 /* ---------- button settings ---------- */
 .button {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.85);
+  height: 64px;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0 0 0;
+  pointer-events: auto;
+}
+.button img {
+  width: 64px;
+  height: 64px;
+  padding: 15px;
+}
+.button :hover {
+  cursor: pointer;
+  outline: 4px solid rgb(206, 255, 251);
+}
+
+.blocked {
+  background-color: gray;
+  pointer-events: none;
   height: 64px;
   width: 64px;
   display: flex;
@@ -104,9 +135,10 @@ nav .button img {
   justify-content: center;
   margin: 25px 0 0 0;
 }
-.button img {
-  width: 35px;
-  height: 35px;
+.blocked img {
+  width: 64px;
+  height: 64px;
+  padding: 15px;
 }
 
 /* ---------- FAB settings ----------*/
@@ -122,4 +154,9 @@ nav .button img {
 }
 .FAB .button img {
   height: 35px;
+}
+
+/* ---------- helper settings ---------- */
+.hidden {
+  display: none;
 }/*# sourceMappingURL=styles.css.map */

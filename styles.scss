@@ -1,9 +1,15 @@
+/* ---------- variables ---------- */
+
+$color-primary: rgba(0, 0, 0, 0.85);
+
+
 /* ---------- general settings ---------- */
 @font-face {
     font-family: "Inter";
     src:
         local("Inter"),
         url("fonts/Inter/Inter-VariableFont.ttf") format("truetype");
+        color: $color-primary;
 }
 
 :root{
@@ -57,6 +63,7 @@ nav{
 .header{
     flex-direction: column;
     gap:25px;
+    color: $color-primary;
 
     img{
         height:150px;
@@ -71,6 +78,7 @@ $padding:30px;
     flex-grow: 4;
     align-items: center;
     padding: 0 $padding 0 $padding;
+    color: $color-primary;
 }
 
 .column{
@@ -89,7 +97,7 @@ $padding:30px;
 }
 
 .graphFiller{
-    background-color: black;
+    background-color: $color-primary;
     width:fill;
 }
 
@@ -115,7 +123,30 @@ $padding:30px;
 $buttonSize:64px;
 
 .button{
-    background-color: black;
+    background-color: $color-primary;
+    height: $buttonSize;
+    width: $buttonSize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0 0 0;
+    pointer-events: auto;
+
+    img{
+        width: 64px;
+        height:64px;
+        padding: 15px;
+    }
+
+    :hover{
+        cursor: pointer;
+        outline: 4px solid rgb(206, 255, 251);
+    }
+}
+
+.blocked{
+    background-color: gray;
+    pointer-events: none;
     height: $buttonSize;
     width: $buttonSize;
     display: flex;
@@ -124,8 +155,9 @@ $buttonSize:64px;
     margin: 25px 0 0 0;
 
     img{
-        width: 35px;
-        height:35px;
+        width: 64px;
+        height:64px;
+        padding: 15px;
     }
 }
 
@@ -146,4 +178,9 @@ $buttonSize:64px;
             height:35px;
         }
     }
+}
+
+/* ---------- helper settings ---------- */
+.hidden{
+    display: none;
 }
