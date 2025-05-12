@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
-    setInterval(updateGraph, 10000); // Update 10 second
+    setInterval(updateGraph, 1000); // Update 10 second
 });
 
 //socket connection
