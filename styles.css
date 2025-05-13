@@ -22,8 +22,7 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 50px 0.25rem;
   font-family: "Inter";
 }
 
@@ -32,6 +31,12 @@ section {
   align-items: center;
   justify-content: space-around;
   flex-grow: 1;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 /* ---------- nav settings ---------- */
@@ -47,27 +52,40 @@ nav .button img {
   width: 40px;
 }
 
+/* ---------- alert settings ---------- */
+.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(254, 120, 120, 0.707);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 30px;
+}
 /* ---------- header settings ---------- */
 .header {
   flex-direction: column;
-  gap: 25px;
+  gap: 1.5rem;
   color: rgba(0, 0, 0, 0.85);
 }
 .header img {
-  height: 150px;
+  height: 5rem;
 }
 
 /* ---------- graph settings ---------- */
 .main {
   flex-grow: 4;
   align-items: center;
-  padding: 0 30px 0 30px;
+  padding: 0 2rem 0 2rem;
   color: rgba(0, 0, 0, 0.85);
 }
 
 .column {
   display: flex;
-  gap: 25px;
+  gap: 1rem;
   flex-direction: column;
   align-items: center;
 }
@@ -112,7 +130,7 @@ nav .button img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 25px 0 0 0;
+  margin: 1rem 0 0 0;
   pointer-events: auto;
 }
 .button img {
@@ -144,8 +162,8 @@ nav .button img {
 /* ---------- FAB settings ----------*/
 .FAB {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 1rem;
+  right: 1rem;
 }
 .FAB .button {
   border-radius: 48px;
@@ -153,10 +171,29 @@ nav .button img {
   height: 48px;
 }
 .FAB .button img {
-  height: 35px;
+  width: 64px;
+  height: 64px;
+  padding: 15px;
+}
+.FAB .button :hover {
+  cursor: pointer;
+  outline: 4px solid rgb(206, 255, 251);
 }
 
 /* ---------- helper settings ---------- */
 .hidden {
   display: none;
+}
+
+/* ---------- media queries ---------- */
+@media (min-width: 400px) {
+  .header {
+    gap: 1.5rem;
+  }
+  .header img {
+    height: 10rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=styles.css.map */

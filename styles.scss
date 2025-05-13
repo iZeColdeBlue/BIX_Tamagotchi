@@ -29,8 +29,7 @@ body{
     width: 100vw;
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 0.25rem;
     font-family: "Inter";
 
 }
@@ -40,6 +39,12 @@ section{
     align-items: center;
     justify-content: space-around;
     flex-grow: 1;
+}
+
+h1{
+    font-size: 1.5rem;
+    text-align: center;
+    color: $color-primary;
 }
 
 
@@ -57,22 +62,37 @@ nav{
     }
 }
 
+/* ---------- alert settings ---------- */
+.alert{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(254, 120, 120, 0.707);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:8px;
+    height: 30px;
+    img{}
+}
+
 
 /* ---------- header settings ---------- */
 
 .header{
     flex-direction: column;
-    gap:25px;
+    gap: 1.5rem;
     color: $color-primary;
 
     img{
-        height:150px;
+        height:5rem;
     } 
 }
 
 
 /* ---------- graph settings ---------- */
-$padding:30px;
+$padding:2rem;
 
 .main{
     flex-grow: 4;
@@ -83,7 +103,7 @@ $padding:30px;
 
 .column{
     display: flex;
-    gap:25px;
+    gap:1rem;
     flex-direction: column;
     align-items: center;
 }
@@ -129,7 +149,7 @@ $buttonSize:64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 25px 0 0 0;
+    margin: 1rem 0 0 0;
     pointer-events: auto;
 
     img{
@@ -166,8 +186,8 @@ $buttonSize:64px;
 
 .FAB{
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 1rem;
+    right: 1rem;
 
     .button{
         border-radius: 48px;
@@ -175,12 +195,35 @@ $buttonSize:64px;
         height: 48px;
 
         img{
-            height:35px;
+            width: 64px;
+            height:64px;
+            padding: 15px;
         }
+        
+        :hover{
+            cursor: pointer;
+            outline: 4px solid rgb(206, 255, 251);
+        }
+
     }
 }
 
 /* ---------- helper settings ---------- */
 .hidden{
     display: none;
+}
+
+/* ---------- media queries ---------- */
+@media (min-width: 400px) {
+    .header{
+        gap: 1.5rem;
+    
+        img{
+            height:10rem;
+        } 
+    }
+
+    h1{
+        font-size: 2rem;
+    }
 }
