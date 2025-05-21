@@ -2,6 +2,10 @@ const loveButton = document.getElementById("loveB");
 const hungerButton = document.getElementById("hungerB");
 const hygieneButton = document.getElementById("hygieneB");
 
+const loveVotesNr = document.getElementById("loveVotes");
+const hungerVotesNr = document.getElementById("hungerVotes");   
+const hygieneVotesNr = document.getElementById("hygieneVotes");
+
 const blockTimer = document.getElementById('timer');
 const UNLOCK_KEY = "uiUnlockTime";
 const title = document.getElementById('pageTitle');
@@ -16,12 +20,19 @@ let currentLove;
 let currentHunger;
 let currentHygiene;
 
+let loveVotes;
+let hungerVotes;
+let hygieneVotes;
+
+let voteTime;
+let voteActive;
+
 let lockDurration;
 let unlockTimestamp;
 
 // update the graph with the current values - fetch data from the server
 async function updateGraph() {
-    socket.send("GET");
+    //socket.send("GET");
 
     // Wait for the WebSocket message
     const data = await new Promise((resolve) => {
@@ -29,6 +40,27 @@ async function updateGraph() {
             resolve(JSON.parse(event.data));
         };
     });
+
+    loveVotes = data.loveVotes;
+    hungerVotes = data.hungerVotes;
+    hygieneVotes = data.hygieneVotes;
+    voteTime = data.voteTimeLeft;
+    voteActive = data.votingActive;
+    if(voteActive){
+    unlockUI();
+    title.textContent = "Vote now, to take action!";
+    blockTimer.classList.remove('hidden');
+    } else {
+    blockUI();
+    title.textContent = "Wait for the next voting!";
+    blockTimer.classList.add('hidden');
+    }
+
+    loveVotesNr.textContent = loveVotes;
+    hungerVotesNr.textContent = hungerVotes;
+    hygieneVotesNr.textContent = hygieneVotes;
+    blockTimer.textContent = voteTime + " seconds left!";
+
 
     // Update the graph with the received data
     currentLove = data.love;
@@ -91,6 +123,7 @@ socket.onopen = function() {
 socket.onerror = function() {
     alert.classList.remove('hidden');
     alertText.textContent = "Could not connect to the server.";
+    blockUI();
 }
 
 //send data to server - called when buttons are clicked
@@ -137,8 +170,8 @@ function blockUI(){
     hungerButton.classList.add('blocked');
     loveButton.classList.add('blocked');
 
-    blockTimer.classList.remove('hidden');
-    title.textContent = "Wait to send more love!";
+   // blockTimer.classList.remove('hidden');
+    title.textContent = "Wait for the next voting!";
 }
 
 // Function to unlock the UI after the timer ends
@@ -150,10 +183,11 @@ function unlockUI(){
     hygieneButton.classList.add('button');
     hungerButton.classList.add('button');
     loveButton.classList.add('button');
-    title.textContent = "Take care of our friendly alien!";
+    title.textContent = "Vote now, to take action!";
 }
 
 // Function to update the timer - called when buttons are clicked
+/*
 function updateTimer(){
     if(!lockDurration){
         lockDurration = 1000;  //<- change to block users for shorter time (5 min for real; 1 min for testing)
@@ -174,26 +208,26 @@ function updateTimer(){
             blockTimer.textContent = `0${minutes}:${seconds}`;
         }
     }, 1000);
-}
+}*/
 
 //called functions - if buttons are clicked
 loveButton.addEventListener("click", () => {
     loveClicked();
-    blockUI();
+    //blockUI();
     updateTimer();
     updateGraph();
 });
 
 hungerButton.addEventListener("click", () => {
     hungerClicked();
-    blockUI();
+    //blockUI();
     updateTimer();
     updateGraph();
 });
 
 hygieneButton.addEventListener("click", () => {
     hygieneClicked();
-    blockUI();
+    //blockUI();
     updateTimer();
     updateGraph();
 });

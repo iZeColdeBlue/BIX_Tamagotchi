@@ -31,7 +31,9 @@ body{
     flex-direction: column;
     padding: 50px 0.25rem;
     font-family: "Inter";
-
+    .about{
+        height: fit-content;
+    }
 }
 
 section{
@@ -51,6 +53,9 @@ h1{
 /* ---------- nav settings ---------- */
 
 nav{
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 50px;
     width: 100vw;
     display:flex;
@@ -85,7 +90,7 @@ nav{
     justify-content: center;
     gap:8px;
     height: 30px;
-    img{}
+    
 }
 
 
@@ -97,7 +102,7 @@ nav{
     color: $color-primary;
 
     img{
-        height:5rem;
+        height:4rem;
     } 
 }
 
@@ -149,6 +154,12 @@ $padding:2rem;
     font-size: large;
 }
 
+.voteCount{
+    font-size: 1rem;
+    color: $color-primary;
+    height: 1rem;
+    width: 1rem;
+}
 
 /* ---------- button settings ---------- */
 $buttonSize:64px;

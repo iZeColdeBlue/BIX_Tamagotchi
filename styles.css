@@ -25,6 +25,10 @@ body {
   padding: 50px 0.25rem;
   font-family: "Inter";
 }
+body .about {
+  height: -moz-fit-content;
+  height: fit-content;
+}
 
 section {
   display: flex;
@@ -41,6 +45,9 @@ h1 {
 
 /* ---------- nav settings ---------- */
 nav {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 50px;
   width: 100vw;
   display: flex;
@@ -76,6 +83,7 @@ nav .button img {
   gap: 8px;
   height: 30px;
 }
+
 /* ---------- header settings ---------- */
 .header {
   flex-direction: column;
@@ -83,7 +91,7 @@ nav .button img {
   color: rgba(0, 0, 0, 0.85);
 }
 .header img {
-  height: 5rem;
+  height: 4rem;
 }
 
 /* ---------- graph settings ---------- */
@@ -131,6 +139,13 @@ nav .button img {
 .label {
   font-weight: bold;
   font-size: large;
+}
+
+.voteCount {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.85);
+  height: 1rem;
+  width: 1rem;
 }
 
 /* ---------- button settings ---------- */

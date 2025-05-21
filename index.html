@@ -11,18 +11,18 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/x-icon" href="pics/favicon.ico">
 
-        <title>Friendly Alien</title>
+        <title>BIXI</title>
     </head>
     <body>  
         <section id="warningAlert" class="alert hidden">
             <img class="alertIcon" src="icons/alert.svg" alt="a low resolution pixel graphic of an alert sign">
             <div class="alertText">
-                <p id="alertText">You have to take care of the alien!</p>
+                <p id="alertText">You have to take care of BIXI!</p>
             </div>
         </section>
 
         <section class="header">
-            <h1 id="pageTitle">Take care of our friendly alien!</h1>
+            <h1 id="pageTitle">Take care of BIXI!</h1>
 
                 <div id ="timer" class="hidden"></div>
 
@@ -38,6 +38,7 @@
                 </div>
                 <div class="label">Love</div>
                 <div id="loveB" class ="button"> <img src="icons/love.svg" alt="a low resolution pixel graphic of a heart"></div>
+                <div class="voteCount" id="loveVotes">0</div>
             </div>
 
             <div class="column">
@@ -46,6 +47,7 @@
                 </div>
                 <div class="label">Food</div>
                 <div id="hungerB" class="button"> <img src="icons/hunger.svg" alt="a low resolution pixel graphic of an apple"></div>
+                <div class="voteCount" id="hungerVotes">0</div>
             </div>
 
             <div class="column">
@@ -54,6 +56,7 @@
                 </div>
                 <div class="label">Hygiene</div>
                 <div id="hygieneB" class="button"> <img src="icons/hygiene.svg" alt="a low resolution pixel graphic of three stars"></div>
+                <div class="voteCount" id="hygieneVotes">0</div>
             </div>
 
             <!-- Script to check button clicks-->
