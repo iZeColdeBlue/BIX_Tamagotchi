@@ -43,13 +43,24 @@ h1 {
 nav {
   height: 50px;
   width: 100vw;
+  display: flex;
+  align-items: center;
+}
+nav a {
+  height: 48px;
+  width: 48px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 nav .button {
   background-color: transparent;
+  height: 48px;
+  margin: 0;
 }
 nav .button img {
-  height: 40px;
-  width: 40px;
+  height: 48px;
+  width: 48px;
 }
 
 /* ---------- alert settings ---------- */

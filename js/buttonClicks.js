@@ -156,7 +156,7 @@ function unlockUI(){
 // Function to update the timer - called when buttons are clicked
 function updateTimer(){
     if(!lockDurration){
-        lockDurration = 5 * 60 * 1000;  //<- change to block users for shorter time (5 min for real; 1 min for testing)
+        lockDurration = 1000;  //<- change to block users for shorter time (5 min for real; 1 min for testing)
     }
     unlockTimestamp = Date.now() + lockDurration;
     localStorage.setItem(UNLOCK_KEY, unlockTimestamp);

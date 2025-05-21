@@ -53,11 +53,22 @@ h1{
 nav{
     height: 50px;
     width: 100vw;
+    display:flex;
+    align-items: center;
+    a{
+        height: 48px;
+        width: 48px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
     .button{
         background-color: transparent;
+        height: 48px;
+        margin: 0;
         img{
-            height: 40px;
-            width: 40px;
+            height: 48px;
+            width: 48px;
         }
     }
 }
